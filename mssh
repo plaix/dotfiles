@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#
+# Open up 4 pane window for host in $1
+#
+
+if [ -z "$1" ]
+then
+	echo "Needs a host to start"
+	exit 1
+fi
+
+#	-----
+#	|0|2|
+#	|3|1|
+#	-----
+
+tmux rename-window 'host_'$1
+tmux split-window -d -t 0 -v 
+tmux split-window -d -t 0 -h
+tmux split-window -d -t 2 -h
+
+tmux select-pane -t 2
+tmux send-keys "ssh "$1 C-m
+tmux select-pane -t 3
+tmux send-keys "ssh "$1 C-m
+tmux select-pane -t 1
+tmux send-keys "ssh "$1 C-m
+tmux select-pane -t 0
+tmux send-keys "ssh "$1 C-m
