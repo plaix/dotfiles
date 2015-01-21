@@ -96,6 +96,7 @@ nmap <leader>gd :Gdiff<cr>
 map <F6> :Git push<CR>
 " airline vim buffer line
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_c = airline#section#create(['%F'])
 " JSHINT
 let jshint2_save = 1
 nnoremap <silent><F9> :JSHint<CR>
