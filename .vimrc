@@ -102,3 +102,6 @@ let jshint2_save = 1
 nnoremap <silent><F9> :JSHint<CR>
 " syntastic disable on javascript
 let g:syntastic_javascript_checkers = []
+" Search for selected text
+vnorem // y/<c-r>"<cr>
+
